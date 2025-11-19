@@ -13,6 +13,7 @@ import teamMembers from "../data/teamMembers";
 
 
 export const ProfileCardWidget = () => {
+
   return (
     <Card border="light" className="text-center p-0 mb-4">
       <div style={{ backgroundImage: `url(${ProfileCover})` }} className="profile-cover rounded-top" />

@@ -11,7 +11,7 @@ import { trafficShares, totalOrders } from "../../data/charts";
 export default () => {
   return (
     <>
-      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
+      <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4" id="toolbar">
         <Dropdown className="btn-toolbar">
           <Dropdown.Toggle as={Button} variant="primary" size="sm" className="me-2">
             <FontAwesomeIcon icon={faPlus} className="me-2" />New Task
@@ -28,14 +28,10 @@ export default () => {
             </Dropdown.Item>
 
             <Dropdown.Divider />
-
-            <Dropdown.Item className="fw-bold">
-              <FontAwesomeIcon icon={faRocket} className="text-danger me-2" /> Upgrade to Pro
-            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
 
-        <ButtonGroup>
+        <ButtonGroup id="Share Export">
           <Button variant="outline-primary" size="sm">Share</Button>
           <Button variant="outline-primary" size="sm">Export</Button>
         </ButtonGroup>

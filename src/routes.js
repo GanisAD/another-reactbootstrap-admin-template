@@ -1,8 +1,8 @@
 
 export const Routes = {
     // pages
-    Presentation: { path: "/" },
-    DashboardOverview: { path: "/dashboard/overview" },
+    // Presentation: { path: "/" },
+    DashboardOverview: { path: "/" },
     Transactions: { path: "/transactions" },
     Settings: { path: "/settings" },
     Upgrade: { path: "/upgrade" },
@@ -14,8 +14,8 @@ export const Routes = {
     ForgotPassword: { path: "/examples/forgot-password" },
     ResetPassword: { path: "/examples/reset-password" },
     Lock: { path: "/examples/lock" },
-    NotFound: { path: "/examples/404" },
-    ServerError: { path: "/examples/500" },
+    NotFound: { path: "/error/server/404" },
+    ServerError: { path: "/error/server/500" },
 
     // docs
     DocsOverview: { path: "/documentation/overview" },
