@@ -103,10 +103,10 @@ export default (props = {}) => {
               <CollapsableNavItem eventKey="tables/" title="Dashboard" icon={faTachometerAlt}>
                 <NavItem title="Overview" link={Routes.DashboardOverview.path} icon={faChartPie} />
               </CollapsableNavItem>
-              <NavItem external title="Messages" link="" target="_blank" icon={faInbox} />
+              <NavItem title="Messages" link={Routes.Messages.path} icon={faInbox} />
               <NavItem title="Transactions" icon={faHandHoldingUsd} link={Routes.Transactions.path} />
-              <NavItem external title="Calendar" link="" target="_blank" icon={faCalendarAlt} />
-              <NavItem external title="Map" link="" target="_blank" icon={faMapPin} />
+              <NavItem title="Calendar" link={Routes.Calendar.path} icon={faCalendarAlt} />
+              <NavItem title="Map" link={Routes.Map.path} icon={faMapPin} />
               <NavItem title="Settings" icon={faCog} link={Routes.Settings.path} />
 
               {/* <CollapsableNavItem eventKey="tables/" title="Tables" icon={faTable}>

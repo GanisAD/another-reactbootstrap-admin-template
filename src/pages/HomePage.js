@@ -15,6 +15,9 @@ import ResetPassword from "./examples/ResetPassword";
 import Lock from "./examples/Lock";
 import NotFoundPage from "./examples/NotFound";
 import ServerError from "./examples/ServerError";
+import Messages from './Messages';
+import Calendar from './Calendar';
+import Map from './Map';
 
 // documentation pages
 import DocsOverview from "./documentation/DocsOverview";
@@ -114,6 +117,9 @@ export default () => (
     <RouteWithSidebar exact path={Routes.Upgrade.path} component={Upgrade} />
     <RouteWithSidebar exact path={Routes.Transactions.path} component={Transactions} />
     <RouteWithSidebar exact path={Routes.Settings.path} component={Settings} />
+    <RouteWithSidebar exact path={Routes.Messages.path} component={Messages} />
+    <RouteWithSidebar exact path={Routes.Calendar.path} component={Calendar} />
+    <RouteWithSidebar exact path={Routes.Map.path} component={Map} />
     <RouteWithSidebar exact path={Routes.BootstrapTables.path} component={BootstrapTables} />
 
     {/* components */}

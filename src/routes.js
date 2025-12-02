@@ -1,4 +1,3 @@
-
 export const Routes = {
     // pages
     // Presentation: { path: "/" },
@@ -6,6 +5,9 @@ export const Routes = {
     Transactions: { path: "/transactions" },
     Settings: { path: "/settings" },
     Upgrade: { path: "/upgrade" },
+    Messages : { path: "/messages"},
+    Calendar : { path: "/calendar"},
+    Map : { path: "/map"},
     BootstrapTables: { path: "/tables/bootstrap-tables" },
     Billing: { path: "/examples/billing" },
     Invoice: { path: "/examples/invoice" },
