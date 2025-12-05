@@ -440,7 +440,7 @@ export const MessagesTable = () => {
       
       <Card.Body className="pt-0">
         {/* Table  */}
-        <Table hover className="user-table align-items-center">
+        <Table hover className="user-table align-items-center messages-table">
           {/* <thead>
             <tr>
               <th className="border-bottom">#</th>
