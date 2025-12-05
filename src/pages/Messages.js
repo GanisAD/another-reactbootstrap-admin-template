@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faCog, faHome, faSearch, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Col, Row, Form, Button, ButtonGroup, Breadcrumb, InputGroup, Dropdown } from "@themesberg/react-bootstrap";
+import { MessagesTable } from "../components/Tables";
 
 export default () => {
   return (
@@ -59,12 +60,7 @@ export default () => {
         </Row>
       </div>
 
-      {/* Placeholder Content */}
-      <div className="text-center py-5">
-        <FontAwesomeIcon icon={faEnvelope} size="3x" className="mb-3 text-gray" />
-        <h5>No messages yet</h5>
-        <p className="text-muted">Your messages will appear here once available.</p>
-      </div>
+      < MessagesTable/>
     </>
   );
 };

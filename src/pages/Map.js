@@ -7,7 +7,7 @@ export default () => {
     return (
     <>
         <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
-            <2div className="d-block mb-4 mb-md-0">
+            <div className="d-block mb-4 mb-md-0">
                 <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
                     <Breadcrumb.Item><FontAwesomeIcon icon={faHome} /></Breadcrumb.Item>
                     <Breadcrumb.Item>Volt</Breadcrumb.Item>

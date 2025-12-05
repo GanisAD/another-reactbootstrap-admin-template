@@ -8,6 +8,7 @@ import { TransactionsTable } from "../components/Tables";
 export default () => {
   return (
     <>
+    {/* Header */}
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center py-4">
         <div className="d-block mb-4 mb-md-0">
           <Breadcrumb className="d-none d-md-inline-block" listProps={{ className: "breadcrumb-dark breadcrumb-transparent" }}>
@@ -25,9 +26,10 @@ export default () => {
           </ButtonGroup>
         </div>
       </div>
-
+    {/* Search and Settings */}
       <div className="table-settings mb-4">
         <Row className="justify-content-between align-items-center">
+          {/* Search bar */}
           <Col xs={8} md={6} lg={3} xl={4}>
             <InputGroup>
               <InputGroup.Text>
@@ -36,6 +38,7 @@ export default () => {
               <Form.Control type="text" placeholder="Search" />
             </InputGroup>
           </Col>
+          {/* Settings button */}
           <Col xs={4} md={2} xl={1} className="ps-md-0 text-end">
             <Dropdown as={ButtonGroup}>
               <Dropdown.Toggle split as={Button} variant="link" className="text-dark m-0 p-0">

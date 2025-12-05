@@ -9,6 +9,8 @@ import { Routes } from "../routes";
 import { pageVisits, pageTraffic, pageRanking } from "../data/tables";
 import transactions from "../data/transactions";
 import commands from "../data/commands";
+import messages from "../data/messages";
+
 
 const ValueChange = ({ value, suffix }) => {
   const valueIcon = value < 0 ? faAngleDown : faAngleUp;
@@ -203,49 +205,62 @@ export const TransactionsTable = () => {
             {invoiceNumber}
           </Card.Link>
         </td>
+        
         <td>
           <span className="fw-normal">
             {subscription}
           </span>
         </td>
+        
         <td>
           <span className="fw-normal">
             {issueDate}
           </span>
         </td>
+        
         <td>
           <span className="fw-normal">
             {dueDate}
           </span>
         </td>
+        
         <td>
           <span className="fw-normal">
             ${parseFloat(price).toFixed(2)}
           </span>
         </td>
+        
         <td>
           <span className={`fw-normal text-${statusVariant}`}>
             {status}
           </span>
         </td>
+        
+        {/* Action Button */}
         <td>
           <Dropdown as={ButtonGroup}>
+            
             <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
               <span className="icon icon-sm">
                 <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
               </span>
             </Dropdown.Toggle>
+
             <Dropdown.Menu>
               <Dropdown.Item>
                 <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
               </Dropdown.Item>
+
               <Dropdown.Item>
                 <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
               </Dropdown.Item>
+
               <Dropdown.Item className="text-danger">
                 <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
               </Dropdown.Item>
+
             </Dropdown.Menu>
+
           </Dropdown>
         </td>
       </tr>
@@ -254,6 +269,7 @@ export const TransactionsTable = () => {
 
   return (
     <Card border="light" className="table-wrapper table-responsive shadow-sm">
+      {/* Table Header */}
       <Card.Body className="pt-0">
         <Table hover className="user-table align-items-center">
           <thead>
@@ -271,6 +287,7 @@ export const TransactionsTable = () => {
             {transactions.map(t => <TableRow key={`transaction-${t.invoiceNumber}`} {...t} />)}
           </tbody>
         </Table>
+        {/* Table Footer */}
         <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
           <Nav>
             <Pagination className="mb-2 mb-lg-0">
@@ -340,6 +357,127 @@ export const CommandsTable = () => {
             {commands.map(c => <TableRow key={`command-${c.id}`} {...c} />)}
           </tbody>
         </Table>
+      </Card.Body>
+    </Card>
+  );
+};
+
+export const MessagesTable = () => {
+  const totalMessages = messages.length;
+
+  const TableRow = (props) => {
+    const { UserID, UserName, Messages, issueDate, status } = props;
+    const statusVariant = status === "Read" ? "success"
+      : status === "Not Read" ? "warning"
+        : status === "Blocked" ? "danger" : "primary";
+
+    // Table data and logic
+    return (
+      <tr>
+        <td>
+          <Card.Link as={Link} to={Routes.Invoice.path} className="fw-light">
+            {UserID}
+          </Card.Link>
+        </td>
+        
+        <td>
+          <span className="fw-normal">
+            {UserName}
+          </span>
+        </td>
+        
+        <td>
+          <span className="fw-bold">
+            {Messages}
+          </span>
+        </td>
+
+        <td>
+          <span className="fw-light">
+            {issueDate}
+          </span>
+        </td>
+        
+        <td>
+          <span className={`fw-normal text-${statusVariant}`}>
+            {status}
+          </span>
+        </td>
+        
+        {/* Action Button */}
+        <td>
+          <Dropdown as={ButtonGroup}>
+            
+            <Dropdown.Toggle as={Button} split variant="link" className="text-dark m-0 p-0">
+              <span className="icon icon-sm">
+                <FontAwesomeIcon icon={faEllipsisH} className="icon-dark" />
+              </span>
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <FontAwesomeIcon icon={faEye} className="me-2" /> View Details
+              </Dropdown.Item>
+
+              <Dropdown.Item>
+                <FontAwesomeIcon icon={faEdit} className="me-2" /> Edit
+              </Dropdown.Item>
+
+              <Dropdown.Item className="text-danger">
+                <FontAwesomeIcon icon={faTrashAlt} className="me-2" /> Remove
+              </Dropdown.Item>
+
+            </Dropdown.Menu>
+
+          </Dropdown>
+        </td>
+      </tr>
+    );
+  };
+  // Table visualization and footer
+  return (
+    <Card border="light" className="table-wrapper table-responsive shadow-sm">
+      
+      <Card.Body className="pt-0">
+        {/* Table  */}
+        <Table hover className="user-table align-items-center">
+          {/* <thead>
+            <tr>
+              <th className="border-bottom">#</th>
+              <th className="border-bottom">Bill For</th>
+              <th className="border-bottom">Issue Date</th>
+              <th className="border-bottom">Due Date</th>
+              <th className="border-bottom">Total</th>
+              <th className="border-bottom">Status</th>
+              <th className="border-bottom">Action</th>
+            </tr>
+          </thead> */}
+          <tbody>
+            {/* calling table data */}
+            {messages.map(t => <TableRow key={`messages-${t.UserID}`} {...t} />)}
+          </tbody>
+        </Table>
+        {/* Table Footer */}
+        <Card.Footer className="px-3 border-0 d-lg-flex align-items-center justify-content-between">
+          <Nav>
+            <Pagination className="mb-2 mb-lg-0">
+              <Pagination.Prev>
+                Previous
+              </Pagination.Prev>
+              <Pagination.Item active>1</Pagination.Item>
+              <Pagination.Item>2</Pagination.Item>
+              <Pagination.Item>3</Pagination.Item>
+              <Pagination.Item>4</Pagination.Item>
+              <Pagination.Item>5</Pagination.Item>
+              <Pagination.Next>
+                Next
+              </Pagination.Next>
+            </Pagination>
+          </Nav>
+          <small className="fw-bold">
+            Showing <b>{totalMessages}</b> out of <b>25</b> entries
+          </small>
+        </Card.Footer>
       </Card.Body>
     </Card>
   );
